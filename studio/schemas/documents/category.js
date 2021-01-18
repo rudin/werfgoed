@@ -12,6 +12,12 @@ export default {
       name: 'description',
       type: 'text',
       title: 'Description'
+    },
+    {
+      name: 'posts',
+      title: "Posts",
+      type: "array",
+      of: [{ type: "reference", to: { type: "post" } }],
     }
   ]
 }
