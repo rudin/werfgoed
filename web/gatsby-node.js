@@ -22,6 +22,13 @@ async function createBlogPostPages(graphql, actions, reporter) {
           }
         }
       }
+      allSanityCategory {
+        edges {
+          node {
+            title
+          }
+        }
+      }
     }
   `);
 

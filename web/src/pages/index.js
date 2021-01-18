@@ -40,7 +40,27 @@ export const query = graphql`
       description
       keywords
     }
-
+    allSanityCategory(filter: { title: { eq: "Thuis" } }) {
+      edges {
+        node {
+          id
+          title
+          posts {
+            id
+            publishedAt
+            mainImage {
+              ...SanityImage
+              alt
+            }
+            title
+            _rawExcerpt
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
     posts: allSanityPost(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
@@ -77,12 +97,16 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts)
+  const categoryNodes = (data || {}).allSanityCategory
+    ? mapEdgesToNodes(data.allSanityCategory)
+    : []
+  const postNodes = categoryNodes && categoryNodes.length > 0
+    ? categoryNodes[0].posts
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
 
+  console.log(categoryNodes)
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
