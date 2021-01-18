@@ -40,27 +40,7 @@ export const query = graphql`
       description
       keywords
     }
-    categories: allCategory(filter: { title: {eq: "Thuis"}}) {
-      posts {
-        (
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            ...SanityImage
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
+
     posts: allSanityPost(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
