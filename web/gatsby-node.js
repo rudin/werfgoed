@@ -11,7 +11,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityPost(filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }) {
+      allSanityPost(filter: { slug: { current: { ne: null } }}) {
         edges {
           node {
             id
