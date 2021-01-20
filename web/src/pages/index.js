@@ -45,6 +45,7 @@ export const query = graphql`
         node {
           id
           title
+          description
           posts {
             id
             publishedAt
