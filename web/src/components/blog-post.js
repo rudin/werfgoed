@@ -12,7 +12,7 @@ function BlogPost(props) {
   const { _rawBody, authors, categories, title, mainImage, publishedAt } = props
   return (
     <article className={styles.root}>
-      {mainImage && mainImage.asset && (
+      {/* mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -24,7 +24,7 @@ function BlogPost(props) {
             alt={mainImage.alt}
           />
         </div>
-      )}
+            )*/}
       <Container>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
@@ -32,13 +32,13 @@ function BlogPost(props) {
             {_rawBody && <PortableText blocks={_rawBody} />}
           </div>
           <aside className={styles.metaContent}>
-            {publishedAt && (
+            {/*publishedAt && (
               <div className={styles.publishedAt}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do, YYYY')}
               </div>
-            )}
+                )*/}
             {/* authors && <AuthorList items={authors} title='Authors' /> */}
             {/* categories && (
               <div className={styles.categories}>

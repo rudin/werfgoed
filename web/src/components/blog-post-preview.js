@@ -1,18 +1,19 @@
-import {format} from 'date-fns'
-import {Link} from 'gatsby'
+import { format } from 'date-fns'
+import { Link } from 'gatsby'
 import React from 'react'
-import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
+import { buildImageObj, cn, getBlogUrl } from '../lib/helpers'
+import { imageUrlFor } from '../lib/image-url'
 import PortableText from './portableText'
 
 import styles from './blog-post-preview.module.css'
-import {responsiveTitle3} from './typography.module.css'
+import { responsiveTitle3 } from './typography.module.css'
 
-function BlogPostPreview (props) {
+function BlogPostPreview(props) {
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
-      to={props.slug.current}
+      to={props.slug?.current || "#"}
+      style={{ ...!props.slug && { pointerEvents: "none", marginBottom: "6rem" } }}
     >
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (

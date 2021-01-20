@@ -103,8 +103,6 @@ const IndexPage = props => {
     : []
   const postNodes = categoryNodes && categoryNodes.length > 0
     ? categoryNodes[0].posts
-      .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
     : []
 
   console.log(categoryNodes)
