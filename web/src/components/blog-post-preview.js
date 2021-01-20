@@ -12,7 +12,7 @@ function BlogPostPreview(props) {
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
-      to={props.slug?.current || "#"}
+      to={(props.slug && props.slug.current) || "#"}
       style={{ ...!props.slug && { pointerEvents: "none", marginBottom: "6rem" } }}
     >
       <div className={styles.leadMediaThumb}>
