@@ -1,5 +1,5 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+@import "../styles/custom-media.css";
+@import "../styles/custom-properties.css";
 
 .root {
   display: blog;
@@ -23,8 +23,10 @@
 
 .leadMediaThumb {
   position: relative;
-  padding-bottom: 66.666%;
+  padding-bottom: 100%;
   background: var(--color-very-light-gray);
+  border-radius: 9999px;
+  overflow: hidden;
 
   @nest & img {
     position: absolute;
@@ -57,6 +59,7 @@
 .excerpt {
   @nest & p {
     margin: 0.5em 0;
+    direction: ltr;
   }
 
   @nest & strong {
