@@ -17,7 +17,7 @@ function BlogPostPreview(props) {
       style={{ ...noSlug && { pointerEvents: "none", marginBottom: "6rem", direction: "rtl", gridTemplateColumns: "1fr 1fr" } }}
     >
       <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-        <div className={styles.leadMediaThumb} {...noSlug && { style: { borderRadius: 0, paddingBottom: "62%", width: "100%" } }}>
+        <div className={noSlug ? styles.leadMediaThumbIntro : styles.leadMediaThumb}>
           {props.mainImage && props.mainImage.asset && (
             <img
               src={imageUrlFor(buildImageObj(props.mainImage))
