@@ -9,23 +9,26 @@ import styles from './blog-post-preview.module.css'
 import { responsiveTitle3 } from './typography.module.css'
 
 function BlogPostPreview(props) {
+  const noSlug = !props.slug
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
       to={(props.slug && props.slug.current) || "#"}
-      style={{ ...!props.slug && { pointerEvents: "none", marginBottom: "6rem", direction: "rtl" } }}
+      style={{ ...noSlug && { pointerEvents: "none", marginBottom: "6rem", direction: "rtl", gridTemplateColumns: "1fr 1fr" } }}
     >
-      <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .auto('format')
-              .url()}
-            alt={props.mainImage.alt}
-          />
-        )}
+      <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+        <div className={styles.leadMediaThumb} {...noSlug && { style: { borderRadius: 0, paddingBottom: "62%", width: "100%" } }}>
+          {props.mainImage && props.mainImage.asset && (
+            <img
+              src={imageUrlFor(buildImageObj(props.mainImage))
+                .width(600)
+                // .height(Math.floor((9 / 16) * 600))
+                .auto('format')
+                .url()}
+              alt={props.mainImage.alt}
+            />
+          )}
+        </div>
       </div>
       <div className={styles.text}>
         <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>

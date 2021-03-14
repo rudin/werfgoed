@@ -23,6 +23,7 @@
 
 .leadMediaThumb {
   position: relative;
+  width: 100%;
   padding-bottom: 100%;
   background: var(--color-very-light-gray);
   border-radius: 9999px;
