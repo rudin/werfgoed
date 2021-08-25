@@ -11,7 +11,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>
-          Stichting het Werfgoed • info@hetwerfgoed.nl • 06-43817348 • RSIN 861380071
+          Het Werfgoed • info@hetwerfgoed.nl • 06-43817348
         </div>
       </div>
     </footer>
